@@ -1,0 +1,45 @@
+<div class="EmployeeDashboard">
+  <nav class="navbar navbar-light" id="NavBody1">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="navBody1" href="#">
+        <ion-icon
+          name="leaf-outline"
+          class="d-inline-block align-text-top"
+        ></ion-icon>
+        ODERA
+      </a>
+
+      <div class="dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          id="dropdownUser2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src=" /upload/<%=profileImage%> "
+            alt=""
+            width="32"
+            height="32"
+            class="rounded-circle me-2"
+          />
+          <strong id="navText"> <%= locals.users ? users : "User" %> </strong>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-dark text-small shadow"
+          id="dropdown_Body1"
+          aria-labelledby="dropdownUser1"
+        >
+          <li>
+            <a href="/user/logOut" class="dropdown-item">
+              <span class="iconom">
+                <ion-icon name="log-out-outline"></ion-icon></span
+              >Sign out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="master">
+      <div class="IndexBody3">
+        <!-- Main body -->
+      <%- include("components/userNavbar") %>
+        <!--  Dashboard-->
+        <div class="DashboardBody3">
+     <form class="formLeave1" action="/leave/create" method="post">
+
+<p >Request Leave</p>
+<div class=" formFLex1">
+<div class="mb-3" id="formlenght">
+  <label id="formLabel2" class="form-label"> From</label>
+   <input
+            type="date"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="fromDate"
+            aria-describedby="emailHelp"
+          />
+</div>
+<div class="mb-3"  id="formlenght">
+   <label id="formLabel2" class="form-label"> To</label>
+   <input
+            type="date"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="toDate"
+            aria-describedby="emailHelp"
+          />
+</div>
+</div>
+
+<div class="mb-3">
+          <label id="formLabel2" class="form-label">
+            Reason</label
+          >
+
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="reason"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <button class="btn btnFLow"> Sumbit</button>
+
+     </form>
+        <!-- End of Main body -->
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="master">
+      <%- include("components/sidebar") %>
+      <div class="IndexBody">
+        <!-- Main body -->
+        <div class="department">
+          <div class="department-top">
+            <p>All departments</p>
+            <button
+              href="#"
+              class="btnAdd"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <ion-icon name="add"></ion-icon>
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Create new department
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form
+                      class="form-department"
+                      action="/department/create"
+                      method="post"
+                    >
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"
+                          >Department Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="name"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <button class="btn btn-primary" data-bs-dismiss="modal">
+                        Create
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!---  End of Modal-->
+          </div>
+          <div class="department-Body">
+            <% departments.forEach(department => { %>
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title"><%= department.name %></h5>
+                <div class="col">
+                  <a href="#" class="btn btn-primary"
+                    ><ion-icon name="create-outline"></ion-icon
+                  ></a>
+                  <a href="#" class="btn btn-danger"
+                    ><ion-icon name="trash"></ion-icon
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+
+        <!-- End of Main body -->
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- As a link -->
+
+    <!-- As a heading -->
+    <div class="master">
+      <div><%- include("components/sidebar") %></div>
+
+      <div class="IndexBody">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Employee Name</th>
+
+                <th scope="col">Reason</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Leave Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <% if (requestLeave != '') { %>
+
+            <tbody>
+              <% requestLeave.forEach(leave => { %>
+              <tr>
+                <th scope="row"><%= leave.employee.name %></th>
+                <td><%= leave.reason %></td>
+                <td><%= leave.fromDate.toDateString() %></td>
+                <td><%= leave.toDate.toDateString() %></td>
+                <% if (leave.leaveStatus === 'approved') { %>
+                <td>
+                  <span class="badge" id="badge_Body2">
+                    <%= leave.leaveStatus %>
+                  </span>
+                </td>
+                <% } else if (leave.leaveStatus === 'pending') { %>
+                <td>
+                  <span class="badge" id="badge_Body1">
+                    <%= leave.leaveStatus %>
+                  </span>
+                </td>
+
+                <% } else if (leave.leaveStatus === 'rejected') { %>
+                <td>
+                  <span class="badge" id="badge_Body3">
+                    <%= leave.leaveStatus %>
+                  </span>
+                </td>
+
+                <% } %>
+
+                <td>
+                  <a
+                    href="/allLeave/viewLeave/<%= leave.id %> "
+                    type="button"
+                    class="btnedit"
+                    id="btnedit1"
+                  >
+                    <ion-icon name="create-outline"></ion-icon>
+                  </a>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+            <% } else { %>
+
+            <P style="font-size: 25px; font-weight: 600; text-align: center">
+              No Leave request</P
+            >
+            <% }%>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+      integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/main.js"></script>
+    <script src="/calendar/js/jquery.min.js"></script>
+    <script src="/calendar/js/popper.js"></script>
+
+    <script src="/calendar/js/main.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

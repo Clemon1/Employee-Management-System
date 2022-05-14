@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="master">
+      <%- include("components/sidebar") %>
+
+      <div class="IndexBody">
+        <div class="formBody">
+          <form
+            class="formBody11"
+            method="POST"
+            action="/allLeave/viewLeave/<%= leave.id %>/check"
+          >
+            <h1>Leave Request</h1>
+            <div class="formBodyText">
+              <p>Name: <%= leave.employee.name %></p>
+              <p>Email: <%= leave.employee.email %></p>
+              <p>Leave reason: <%= leave.reason %></p>
+              <p>From: <%= leave.fromDate.toDateString() %></p>
+              <p>To: <%= leave.toDate.toDateString() %></p>
+              <% if (leave.leaveStatus === 'approved') { %>
+              <p>
+                <span class="badge" id="badge_Body2">
+                  <%= leave.leaveStatus %>
+                </span>
+              </p>
+              <% } else if (leave.leaveStatus === 'pending') { %>
+              <p>
+                <span class="badge" id="badge_Body1">
+                  <%= leave.leaveStatus %>
+                </span>
+              </p>
+
+              <% } else if (leave.leaveStatus === 'rejected') { %>
+              <p>
+                <span class="badge" id="badge_Body3">
+                  <%= leave.leaveStatus %>
+                </span>
+              </p>
+
+              <% } %>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Action:</label
+              >
+              <select name="leaveStatus" class="form-select" id="">
+                <option selected>Select action</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btnsave">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

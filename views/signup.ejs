@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="logPage">
+      <div class="logPage2">
+<% if (typeof alert != 'undefined') { %>
+       <% alert.forEach(error => { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong><%= error.msg %> </strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+       <% }) %>
+
+       <% } %> 
+      </div>
+       
+      <form action="/signup" method="post" class="LoginForm">
+        <p>Create  Account</p>
+
+
+ <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"></label>
+            First Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+         <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"></label>
+            Last Name</label
+          >
+          <input
+            type="text"
+            name="lastname"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+
+
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"></label>
+            E-Mail </label
+          >
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary"> <span id="btnname">Submit</span> </button>
+
+        <div id="emailHelp" class="form-text">
+           Have an account already? <a href="/">Login</a>
+        </div>
+      </form>
+    </div>
+<script src="/js/mainApp.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

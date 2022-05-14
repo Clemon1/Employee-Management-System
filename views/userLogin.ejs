@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="master">
+      <div class="IndexBody3">
+        <!-- Main body -->
+        <div style=" width:100%; display: flex; flex-direction:column; justify-content:center; align-items: center;">
+
+        
+ <div class="logPage2">
+ <% if (typeof message != 'undefined') { %>
+     
+
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong><%= message %> </strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+     <% } %>
+     </div>
+        <div class="formDiv">
+          
+ <form  method="post" action="/user/login" class="LoginForm">
+        <h1>Login</h1>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"></label>
+            E-Mail</label
+          >
+
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="email"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <button  class="btn btn-primary">Submit</button>
+
+        
+      </form>
+
+        </div>
+</div>
+        <!-- End of Main body -->
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

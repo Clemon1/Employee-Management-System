@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- As a link -->
+   
+    <!-- As a heading -->
+<div class="master">
+  <div> <%- include("components/sidebar") %></div>
+
+
+
+    <div class="IndexBody">
+ <div class="department-top">
+     <p>Search</p>
+ </div>
+        <div class="btnWidth2">
+        
+<div id="searchbtn">
+  <form action="/employee/search" method="POST" >
+<input type="search" aria-label="Search" class="form-control" name="searchTerm" id="formGroupExampleInput" placeholder="Search Employee or Position"  >
+  </form>
+</div>
+        
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Profile Picture</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Position</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                 <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <% if (employee != '') { %>
+
+            <% employee.forEach((employee,index) => { %>
+              <tbody>
+              <tr>
+                <th scope="row"> <img src="/upload/<%= employee.image %>"  class="img-thumbnail" width="60px" height="60px" alt="" > </th>
+                <td><%= employee.name %> </td>
+                <td><%= employee.age %></td>
+                <td><%= employee.department.name %></td>
+                <td><%= employee.email %></td></td>
+                <td><%= employee.phone %></td>
+                <td>
+                  <a href="/employee/edit/<%= employee.id %>" type="button" class="btnedit">
+                    <ion-icon name="create-outline"></ion-icon>
+                  </a>
+                  
+                  <a href="/employee/delete/<%= employee.id %>" type="button" class="btndelete">
+                    <ion-icon name="trash-outline"></ion-icon>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            <% }) %>
+            <%} else {%>
+<P style="font-size: 25px; font-weight:600; text-align:center;"> No data found</P>
+ <% }%>
+ 
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

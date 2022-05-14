@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="master">
+      <div class="IndexBody3">
+        <!-- Main body -->
+         <%- include("components/userNavbar") %>
+
+         <div style="width:100%; height:fit-content; background:#0e131f; padding: 0px 25px;">
+             <div class="messageDiv">
+            <% if (message.length > 0) { %>
+
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-check2-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"
+                />
+                <path
+                  d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"
+                />
+              </svg>
+              <%= message %>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <% } %>
+          </div>
+         </div>
+        <!--  Dashboard-->
+        <div class="DashboardBody1">
+          <div class="Dash1">
+            <div class="Dash1Body">
+              <div class="Flexdiv1">
+                <div class="flexdivBody1">
+                  <ion-icon name="calendar-clear-outline"></ion-icon>
+                </div>
+                <div class="flexdivBody"><p>Leave </br> Request</p>
+                </div>
+<a href="/leave " type="button" class="btn" id="openBtn"> <ion-icon name="ellipsis-vertical-outline"></ion-icon></a>
+
+              </div>
+              <div class="Flexdiv2">
+                 <div class="flexdivBody1">
+                 <ion-icon name="add-circle-outline"></ion-icon>
+                </div>
+                <div class="flexdivBody"><p>Activities</p></div>
+              </div>
+              <button type="button" class="btn" id="openBtn1"><ion-icon name="ellipsis-vertical-outline"></ion-icon></button>
+
+            </div>
+            <div class="Dash2Body">
+
+              <table class="table table-borderless">
+  <thead>
+    <tr class="tableSlide1">
+
+     
+      <th scope="col">Reason</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+
+    <% employ.forEach(employ => { %>
+     <% if (employ.employee ==  useid ) { %>
+      <tr class="tableSlide2">
+        <th scope="row"> <%= employ.reason%> </th>
+        <th scope="row"> <%= employ.fromDate.toDateString()%> </th>
+        <th scope="row"> <%= employ.toDate.toDateString()%> </th>
+      
+      <% if (employ.leaveStatus === 'pending') { %>
+        <td> <span class="badge " id="badge_Body1"><%=employ.leaveStatus %> </span></td>
+      <% } else if (employ.leaveStatus === 'approved') { %>
+          <td>  <span class="badge " id="badge_Body2"><%=employ.leaveStatus %> </span></td>
+     <% } else if (employ.leaveStatus === 'rejected') { %>
+  <td>  <span class="badge " id="badge_Body3"><%=employ.leaveStatus %> </span></td>
+      <%} %>
+      </tr>
+     <% } %>
+    <% }) %>
+       
+     
+   
+       
+      
+       
+
+   
+  </tbody>
+</table>
+            </div>
+          </div>
+          <div class="Dash2">
+            <div class="DashProfile">
+<div class="Profile_top">
+   <p>Profile</p>
+</div>
+<div class="profile_body1">
+<div class="profile_body">
+   <img
+            src=" /upload/<%=profileImage%> "
+            alt=""
+            width="50"
+            height="50"
+            class="rounded-circle me-2"
+          />
+ 
+</div>
+<div class="profile_body">
+<p> <%= userFullname %> </p>
+ <p> <%= users %> </p>
+ <p> <%= department %> </p>
+ 
+</div>
+</div>
+
+
+<div class=" activities_body">
+ <p> No activities</p>
+</div>
+
+      
+               
+                
+             
+             
+            </div>
+          </div>
+        </div>
+
+        <!-- End of Main body -->
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
